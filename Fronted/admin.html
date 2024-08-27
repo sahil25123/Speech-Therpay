@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo">
+            </div>
+            <div class="logout">
+                <button id="logout-button">Logout</button>
+            </div>
+        </header>
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#user-management">User Management</a></li>
+                    <li><a href="#system-settings">System Settings</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <section id="user-management">
+                <h2>User Management</h2>
+                <button id="view-users">View All Users</button>
+                <div id="user-list">
+                    <!-- List of users will be dynamically loaded here -->
+                </div>
+            </section>
+            <section id="system-settings">
+                <h2>System Settings</h2>
+                <button id="view-settings">Manage Settings</button>
+                <div id="settings-content">
+                    <!-- Settings management content will be dynamically loaded here -->
+                </div>
+            </section>
+            <section id="analytics">
+                <h2>Analytics</h2>
+                <div class="charts">
+                    <div id="user-activity-chart">
+                        <!-- User activity chart -->
+                    </div>
+                    <div id="system-usage-chart">
+                        <!-- System usage chart -->
+                    </div>
+                </div>
+            </section>
+            <section id="feedback">
+                <h2>Feedback</h2>
+                <button id="view-feedback">View Feedback</button>
+                <div id="feedback-list">
+                    <!-- Feedback from users will be dynamically loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>
