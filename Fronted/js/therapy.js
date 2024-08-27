@@ -85,5 +85,5 @@ function generateReport() {
 function logout() {
     alert('Logging out...');
     // Redirect to login page or perform logout action here
-    window.location.href = "C:\Users\sahil\Desktop\Speech Therpay\Fronted\views\login.html";
+    window.location.href = "..\Fronted\views\login.html";
 }
