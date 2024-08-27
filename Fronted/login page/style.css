@@ -18,6 +18,11 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
+.login-container:hover{
+    border: solid black 2px;
+    transition-delay: 100ms;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
