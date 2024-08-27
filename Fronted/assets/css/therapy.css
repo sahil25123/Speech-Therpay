@@ -1,137 +1,106 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6DD5FA, #FFFFFF);
+    font-family: Arial, sans-serif;
     margin: 0;
-    display: flex;
-    height: 100vh;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-.dashboard-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-header {
+.header {
     background-color: #4CAF50;
-    padding: 15px;
     color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.user-profile {
+    position: absolute;
+    top: 10px;
+    right: 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-header .logo img {
-    width: 80px;
+.user-profile img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }
 
-header .user-info {
-    display: flex;
-    align-items: center;
-}
-
-header .user-info span {
-    margin-right: 15px;
-    font-weight: bold;
-}
-
-header .user-info button {
-    padding: 8px 16px;
-    background-color: white;
-    color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-header .user-info button:hover {
-    background-color: #f2f2f2;
-}
-
-aside {
+.sidebar {
     background-color: #333;
-    padding: 20px;
     color: white;
+    height: 100vh;
     width: 200px;
-    height: calc(100vh - 60px);
     position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
 }
 
-aside nav ul {
-    list-style: none;
+.sidebar ul {
+    list-style-type: none;
     padding: 0;
 }
 
-aside nav ul li {
-    margin-bottom: 15px;
+.sidebar ul li {
+    padding: 10px;
 }
 
-aside nav ul li a {
+.sidebar ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    display: block;
 }
 
-aside nav ul li a:hover {
-    color: #4CAF50;
+.sidebar ul li a:hover {
+    background-color: #575757;
+    padding-left: 10px;
 }
 
-main {
+.main-content {
     margin-left: 220px;
     padding: 20px;
-    flex-grow: 1;
-    overflow-y: auto;
 }
 
-main h2 {
-    margin-top: 0;
-    color: #333;
-}
-
-.content-section {
-    display: none;
-}
-
-.patients-list,
-.sessions-scheduler,
-.reports-list {
-    background-color: #f9f9f9;
+.card {
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-/* Additional styles for new sections */
-
-.communication-tools,
-.resources-list,
-.session-history-list,
-.notes-section,
-.analytics-reports {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.communication-tools textarea,
-.notes-section textarea {
+input[type="text"] {
+    padding: 10px;
     width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
-.communication-tools button {
-    padding: 8px 16px;
+button {
+    padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.communication-tools button:hover {
+button:hover {
     background-color: #45a049;
 }
+#logout-btn {
+    padding: 8px 16px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#logout-btn:hover {
+    background-color: #e43b3b;
+}
+
