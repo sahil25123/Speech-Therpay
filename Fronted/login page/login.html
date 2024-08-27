@@ -16,14 +16,17 @@
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
+                <small id="usernameFeedback"></small>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                <small id="passwordFeedback"></small>
             </div>
             <div class="input-group">
                 <label for="role">Select Role</label>
                 <select id="role" name="role" required>
+                    <option value="">--Select Role--</option>
                     <option value="therapist">Therapist</option>
                     <option value="supervisor">Supervisor</option>
                     <option value="admin">Admin</option>

@@ -5,12 +5,31 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value;
     const role = document.getElementById('role').value;
 
-    // You can add more complex validation here
-    if (username && password && role) {
+    let valid = true;
+
+    // Username validation
+    if (username.length < 3) {
+        document.getElementById('usernameFeedback').textContent = 'Username must be at least 3 characters';
+        document.getElementById('usernameFeedback').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('usernameFeedback').style.display = 'none';
+    }
+
+    // Password validation
+    if (password.length < 6) {
+        document.getElementById('passwordFeedback').textContent = 'Password must be at least 6 characters';
+        document.getElementById('passwordFeedback').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('passwordFeedback').style.display = 'none';
+    }
+
+    if (valid) {
         // Handle login logic (e.g., send data to backend)
         alert(`Logged in as ${username} with role ${role}`);
         
-        // You can redirect to the dashboard or appropriate page based on the role
+        // Redirect to the appropriate dashboard based on role
         if (role === 'therapist') {
             window.location.href = 'therapist-dashboard.html';
         } else if (role === 'supervisor') {
@@ -18,7 +37,5 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         } else if (role === 'admin') {
             window.location.href = 'admin-dashboard.html';
         }
-    } else {
-        alert('Please fill in all fields');
     }
 });
