@@ -87,3 +87,11 @@ function logout() {
     // Redirect to login page or perform logout action here
     window.location.href = "login.html";
 }
+function toggleSidebar() {
+    var sidebar = document.getElementById("sidebar");
+    if (sidebar.style.width === "250px") {
+        sidebar.style.width = "0";
+    } else {
+        sidebar.style.width = "250px"; /* Set the width of the sidebar */
+    }
+}

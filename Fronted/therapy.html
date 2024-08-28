@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Therapist Dashboard</title>
     <link rel="stylesheet" href="therapy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -14,11 +15,12 @@
         <div class="user-profile">
             <img src="profile-pic.jpg" alt="Profile Picture">
             <span>Therapist Name</span>
-            <button id="logout-btn" onclick="logout()">Logout</button>
+            
         </div>
     </div>
 
     <div class="sidebar">
+        <div class="icon"><i class="fa-solid fa-bars" onclick="toggleSidebar()"></i></div>
         <ul>
             <li><a href="#overview">Dashboard</a></li>
             <li><a href="#patients">Patients</a></li>
@@ -27,6 +29,7 @@
             <li><a href="#progress-reports">Progress Reports</a></li>
             <li><a href="#messages">Messages</a></li>
             <li><a href="#settings">Settings</a></li>
+            <button id="logout-btn" onclick="logout()"> <i class="fa-solid fa-right-from-bracket"></i> Logout</button>
         </ul>
     </div>
 
