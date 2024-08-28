@@ -1,0 +1,123 @@
+/* Reset and basic styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8;
+}
+
+.signup-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.signup-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-logo img {
+    width: 120px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 500;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="tel"], 
+input[type="number"], 
+input[type="file"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+}
+
+textarea {
+    resize: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-footer a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.signup-container h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 700;
+}
+
+.signup-container p {
+    font-size: 14px;
+    color: #555;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    display: none;
+    margin-top:0.25em;
+}
