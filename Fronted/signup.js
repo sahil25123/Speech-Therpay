@@ -1,107 +1,108 @@
-document.getElementById("signupForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
+// signup.js
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
     // Clear previous error messages
     clearErrors();
 
-    // Get form values
-    const firstName = document.getElementById("first-name").value.trim();
-    const lastName = document.getElementById("last-name").value.trim();
-    const sex = document.getElementById("sex").value;
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const specialization = document.getElementById("specialization").value;
-    const qualification = document.getElementById("qualification").value.trim();
-    const experience = document.getElementById("experience").value;
-    const address = document.getElementById("address").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
-
+    // Validate form fields
     let isValid = true;
 
-    // Validate fields
-    if (firstName === "") {
-        showError("first-name-error", "First name is required");
+    // Fetch form values
+    const username = document.getElementById('username').value.trim();
+    const firstName = document.getElementById('first-name').value.trim();
+    const lastName = document.getElementById('last-name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const specialization = document.getElementById('specialization').value;
+    const experience = document.getElementById('experience').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Basic validation logic
+    if (username === '') {
+        showError('username-error', 'Username is required.');
         isValid = false;
     }
 
-    if (lastName === "") {
-        showError("last-name-error", "Last name is required");
+    if (firstName === '') {
+        showError('first-name-error', 'First name is required.');
         isValid = false;
     }
 
-    if (sex === "") {
-        showError("sex-error", "Sex is required");
+    if (lastName === '') {
+        showError('last-name-error', 'Last name is required.');
         isValid = false;
     }
 
-    if (!validateEmail(email)) {
-        showError("email-error", "Invalid email format");
+    if (email === '') {
+        showError('email-error', 'Email is required.');
+        isValid = false;
+    } else if (!validateEmail(email)) {
+        showError('email-error', 'Enter a valid email address.');
         isValid = false;
     }
 
-    if (!validatePhone(phone)) {
-        showError("phone-error", "Invalid phone number");
+    if (phone === '') {
+        showError('phone-error', 'Phone number is required.');
+        isValid = false;
+    } else if (!validatePhone(phone)) {
+        showError('phone-error', 'Enter a valid phone number.');
         isValid = false;
     }
 
-    if (specialization === "") {
-        showError("specialization-error", "Specialization is required");
+    if (specialization === '') {
+        showError('specialization-error', 'Please select your specialization.');
         isValid = false;
     }
 
-    if (qualification === "") {
-        showError("qualification-error", "Qualification is required");
+    if (experience === '') {
+        showError('experience-error', 'Please provide your years of experience.');
         isValid = false;
     }
 
-    if (experience === "" || experience < 0) {
-        showError("experience-error", "Experience must be a positive number");
+    if (password === '') {
+        showError('password-error', 'Password is required.');
+        isValid = false;
+    } else if (password.length < 6) {
+        showError('password-error', 'Password must be at least 6 characters.');
         isValid = false;
     }
 
-    if (address === "") {
-        showError("address-error", "Address is required");
+    if (confirmPassword !== password) {
+        showError('confirm-password-error', 'Passwords do not match.');
         isValid = false;
     }
 
-    if (password === "") {
-        showError("password-error", "Password is required");
-        isValid = false;
-    }
-
-    if (password !== confirmPassword) {
-        showError("confirm-password-error", "Passwords do not match");
-        isValid = false;
-    }
-
+    // If valid, display a success message or proceed to submit data
     if (isValid) {
-        alert("Signup successful!");
-        // Here you can handle the form submission, e.g., sending data to the server
-        document.getElementById("signupForm").reset();
+        alert('Sign up successful!');
+        // Here you can add code to submit the form data to your server
+        document.getElementById('signupForm').reset();
     }
 });
 
-function showError(elementId, errorMessage) {
-    const errorElement = document.getElementById(elementId);
-    errorElement.textContent = errorMessage;
-    errorElement.style.display = "block";
+// Function to show error messages
+function showError(id, message) {
+    const errorElement = document.getElementById(id);
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
 }
 
+// Function to clear all error messages
 function clearErrors() {
-    const errorElements = document.querySelectorAll(".error-message");
-    errorElements.forEach(function(element) {
-        element.style.display = "none";
-        element.textContent = "";
-    });
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(error => error.style.display = 'none');
 }
 
+// Email validation function
 function validateEmail(email) {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    return emailPattern.test(email);
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
 }
 
+// Phone number validation function
 function validatePhone(phone) {
-    const phonePattern = /^[0-9]{10}$/;
-    return phonePattern.test(phone);
+    const re = /^[0-9]{10}$/; // Assuming a 10-digit phone number format
+    return re.test(phone);
 }

@@ -1,123 +1,126 @@
-/* Reset and basic styles */
-body, html {
+/* signup.css */
+body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('background.jpg') no-repeat center center/cover;
+    filter: blur(8px);
+    z-index: -1;
 }
 
 .signup-container {
-    width: 100%;
-    max-width: 450px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    text-align: center;
-}
-
-.signup-logo {
-    text-align: center;
-    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    z-index: 1;
 }
 
 .signup-logo img {
-    width: 120px;
+    display: block;
+    margin: 0 auto 15px;
+    width: 80px;
 }
 
 h2 {
-    margin-bottom: 20px;
+    text-align: center;
     color: #333;
-    font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .form-group {
     margin-bottom: 15px;
-    text-align: left;
+    position: relative;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
     color: #555;
-    font-weight: 500;
+    font-size: 14px;
 }
 
-input[type="text"], 
-input[type="email"], 
-input[type="password"], 
-input[type="tel"], 
-input[type="number"], 
-input[type="file"], 
-select, 
-textarea {
+.input-icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 10px;
+    color: #aaa;
+}
+
+.input-icon input {
+    padding-left: 35px;
+}
+
+input, select, textarea {
     width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
     box-sizing: border-box;
-    font-size: 16px;
-    color: #333;
 }
 
 textarea {
-    resize: none;
+    resize: vertical;
 }
 
-button[type="submit"] {
+input[type="file"] {
+    padding: 3px;
+}
+
+button {
     width: 100%;
-    padding: 12px;
-    background-color: #007BFF;
+    padding: 10px;
+    background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: 500;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #218838;
 }
 
 .form-footer {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 14px;
 }
 
 .form-footer a {
-    color: #007BFF;
+    color: #007bff;
     text-decoration: none;
-    font-weight: 500;
 }
 
 .form-footer a:hover {
     text-decoration: underline;
 }
 
-.form-group input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px;
-}
-
-.signup-container h2 {
-    font-size: 24px;
-    margin-bottom: 25px;
-    color: #333;
-    font-weight: 700;
-}
-
-.signup-container p {
-    font-size: 14px;
-    color: #555;
-}
-
 .error-message {
-    color: red;
-    font-size: 0.875em;
+    color: #d9534f;
+    font-size: 12px;
     display: none;
-    margin-top:0.25em;
 }
