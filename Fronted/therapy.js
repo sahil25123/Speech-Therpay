@@ -1,97 +1,106 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Example Data
-    const sessions = [
-        { patient: 'John Doe', time: '10:00 AM' },
-        { patient: 'Jane Smith', time: '11:30 AM' },
-    ];
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('active');
+}
 
-    const patients = [
-        { name: 'John Doe', therapyType: 'Speech Therapy', lastSession: '01/01/2024' },
-        { name: 'Jane Smith', therapyType: 'Language Therapy', lastSession: '01/02/2024' },
-    ];
 
-    const therapyPlans = [
-        { plan: 'Plan A for John Doe', status: 'Active' },
-        { plan: 'Plan B for Jane Smith', status: 'Pending Approval' },
-    ];
+// Function to handle logout
+function logout() {
+    window.location.href = "../login.html"; // Adjust the path to your login page
+}
 
-    const sessionDocs = [
-        { session: 'Session 1 for John Doe', date: '01/03/2024' },
-        { session: 'Session 2 for Jane Smith', date: '01/04/2024' },
-    ];
-
-    const progressReports = [
-        { report: 'Report for John Doe', date: '01/05/2024' },
-        { report: 'Report for Jane Smith', date: '01/06/2024' },
-    ];
-
-    // Populate Upcoming Sessions
-    const sessionList = document.getElementById('session-list');
-    sessions.forEach(session => {
-        const li = document.createElement('li');
-        li.textContent = `${session.patient} - ${session.time}`;
-        sessionList.appendChild(li);
-    });
-
-    // Populate Patient Management Table
-    const patientTable = document.getElementById('patient-table').querySelector('tbody');
-    patients.forEach(patient => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${patient.name}</td>
-            <td>${patient.therapyType}</td>
-            <td>${patient.lastSession}</td>
-            <td><button>View</button></td>
-        `;
-        patientTable.appendChild(tr);
-    });
-
-    // Populate Therapy Plans
-    const therapyPlanList = document.getElementById('therapy-plan-list');
-    therapyPlans.forEach(plan => {
-        const li = document.createElement('li');
-        li.textContent = `${plan.plan} - ${plan.status}`;
-        therapyPlanList.appendChild(li);
-    });
-
-    // Populate Session Documentation
-    const sessionDocumentationList = document.getElementById('session-documentation-list');
-    sessionDocs.forEach(doc => {
-        const li = document.createElement('li');
-        li.textContent = `${doc.session} - ${doc.date}`;
-        sessionDocumentationList.appendChild(li);
-    });
-
-    // Populate Progress Reports
-    const progressReportList = document.getElementById('progress-report-list');
-    progressReports.forEach(report => {
-        const li = document.createElement('li');
-        li.textContent = `${report.report} - ${report.date}`;
-        progressReportList.appendChild(li);
+// Function to toggle dropdown menus
+const dropdowns = document.querySelectorAll('.sidebar ul > li > ul.dropdown');
+dropdowns.forEach(dropdown => {
+    dropdown.previousElementSibling.addEventListener('click', function() {
+        this.nextElementSibling.classList.toggle('show');
     });
 });
 
-function createTherapyPlan() {
-    alert('Create a new therapy plan');
+// Sample data for dashboard sections
+const sampleSessions = [
+    { time: "10:00 AM", patient: "John Doe", status: "Scheduled" },
+    { time: "11:00 AM", patient: "Jane Smith", status: "Completed" },
+    { time: "02:00 PM", patient: "Mary Johnson", status: "Scheduled" }
+];
+
+const samplePatients = [
+    { name: "John Doe", therapyType: "Speech Therapy", lastSession: "2024-08-26" },
+    { name: "Jane Smith", therapyType: "Occupational Therapy", lastSession: "2024-08-25" },
+    { name: "Mary Johnson", therapyType: "Physical Therapy", lastSession: "2024-08-24" }
+];
+
+const sampleTherapyPlans = [
+    { plan: "Speech Therapy - Plan A", status: "Pending Approval" },
+    { plan: "Occupational Therapy - Plan B", status: "Active" }
+];
+
+const sampleReports = [
+    { report: "John Doe - Report 1", status: "Submitted" },
+    { report: "Jane Smith - Report 2", status: "In Progress" }
+];
+
+// Populate the Upcoming Sessions list
+function loadSessions() {
+    const sessionList = document.getElementById('session-list');
+    sampleSessions.forEach(session => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${session.time} - ${session.patient} (${session.status})`;
+        sessionList.appendChild(listItem);
+    });
 }
 
-function documentSession() {
-    alert('Document a new session');
+// Populate the Patient Management table
+function loadPatients() {
+    const patientTable = document.getElementById('patient-table').getElementsByTagName('tbody')[0];
+    samplePatients.forEach(patient => {
+        const row = patientTable.insertRow();
+        row.insertCell(0).textContent = patient.name;
+        row.insertCell(1).textContent = patient.therapyType;
+        row.insertCell(2).textContent = patient.lastSession;
+        const actionsCell = row.insertCell(3);
+        actionsCell.innerHTML = '<button onclick="editPatient()">Edit</button> <button onclick="deletePatient()">Delete</button>';
+    });
 }
 
-function generateReport() {
-    alert('Generate a new progress report');
+// Populate the Therapy Plans list
+function loadTherapyPlans() {
+    const therapyPlanList = document.getElementById('therapy-plan-list');
+    sampleTherapyPlans.forEach(plan => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${plan.plan} - ${plan.status}`;
+        therapyPlanList.appendChild(listItem);
+    });
 }
-function logout() {
-    alert('Logging out...');
-    // Redirect to login page or perform logout action here
-    window.location.href = "login.html";
+
+// Populate the Progress Reports list
+function loadProgressReports() {
+    const progressReportList = document.getElementById('progress-report-list');
+    sampleReports.forEach(report => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${report.report} - ${report.status}`;
+        progressReportList.appendChild(listItem);
+    });
 }
-function toggleSidebar() {
-    var sidebar = document.getElementById("sidebar");
-    if (sidebar.style.width === "250px") {
-        sidebar.style.width = "0";
-    } else {
-        sidebar.style.width = "250px"; /* Set the width of the sidebar */
-    }
+
+// Function to simulate patient editing (for example purposes)
+function editPatient() {
+    alert("Edit patient functionality goes here.");
 }
+
+// Function to simulate patient deletion (for example purposes)
+function deletePatient() {
+    alert("Delete patient functionality goes here.");
+}
+
+// Initialize the dashboard content
+function initDashboard() {
+    loadSessions();
+    loadPatients();
+    loadTherapyPlans();
+    loadProgressReports();
+}
+
+// Call the init function once the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', initDashboard);
+

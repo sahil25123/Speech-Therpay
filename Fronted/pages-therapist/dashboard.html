@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Therapy Management System</title>
+    <link rel="stylesheet" href="therapy.css">
+</head>
+<body>
+    <!-- Toggle Button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="patient-management.html">Patient Management</a>
+        <a href="therapy-plans.html">Therapy Plans</a>
+        <a href="session-documentation.html">Session Documentation</a>
+        <a href="progress-reports.html">Progress Reports</a>
+        <a href="supervision.html">Supervision</a>
+        <a href="settings.html">Settings</a>
+        <a href="login.html">Logout</a>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+        <h1>Dashboard</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="user-profile">
+            <img src="https://via.placeholder.com/40" alt="User Profile Picture">
+            <span>John Doe</span>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="flex-container">
+            <div class="card">
+                <h3>Today's Tasks</h3>
+                <p>Review Therapy Plan for Patient A</p>
+                <p>Document Session for Patient B</p>
+                <p>Submit Progress Report for Patient C</p>
+            </div>
+            <div class="card">
+                <h3>Recent Activity</h3>
+                <p>Details of recent sessions, approvals, and feedback.</p>
+            </div>
+            <div class="card">
+                <h3>Statistics</h3>
+                <p>Overview of patient progress, session counts, and more.</p>
+            </div>
+            <div class="card">
+                <h3>Notifications</h3>
+                <p>You have 3 new notifications.</p>
+            </div>
+            <div class="card">
+                <h3>Upcoming Appointments</h3>
+                <p>Check the schedule for upcoming therapy sessions.</p>
+            </div>
+            <div class="card">
+                <h3>Messages</h3>
+                <p>You have 5 unread messages.</p>
+            </div>
+        </div>
+
+        <!-- Chart Container -->
+        <div class="chart-container">
+            <h3>Patient Progress Chart</h3>
+            <!-- You can integrate a chart library here, like Chart.js -->
+            <p>Charts or graphs displaying patient progress, session counts, etc.</p>
+        </div>
+    </div>
+
+    <script src="therapy.js"></script>
+</body>
+</html>
