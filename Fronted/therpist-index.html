@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therapy Management System</title>
+    <link rel="stylesheet" href="therapy.css">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .main-content {
+            padding: 30px;
+            margin-left: 260px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Quick Links Section */
+        .quick-links .card,
+        .resources .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+            margin-bottom: 20px;
+        }
+
+        .quick-links .card:hover,
+        .resources .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .quick-links .btn, .resources .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .quick-links .btn:hover,
+        .resources .btn:hover {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+        }
+
+        .quick-links {
+            margin-top: 40px;
+        }
+
+        .quick-links .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* System Features Section */
+        .system-features ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .system-features ul li {
+            flex: 1;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .system-features ul li:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Recent Activities Section */
+        .recent-activities ul {
+            list-style: none;
+            padding-left: 0;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recent-activities ul li {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .recent-activities ul li:hover {
+            background: #f0f2f5;
+        }
+
+        .recent-activities ul li strong {
+            color: #007bff;
+        }
+
+        /* Resources Section */
+        .resources {
+            margin-top: 40px;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .resources .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .resources .card img {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .flex-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="patient-management.html">Patient Management</a>
+        <a href="pages/therapy-plans.html">Therapy Plans</a>
+        <a href="pages/session-documentation.html">Session Documentation</a>
+        <a href="pages/progress-reports.html">Progress Reports</a>
+        <a href="pages/supervision.html">Supervision</a>
+        <a href="pages/settings.html">Settings</a>
+        <a href="#">Logout</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <h1>Welcome to the Therapy Management System</h1>
+        <p>Select an option from the sidebar to begin.</p>
+
+        <!-- Quick Links Section -->
+        <div class="quick-links">
+            <h2>Quick Links</h2>
+            <div class="flex-container">
+                <div class="card">
+                    <h3>New Patient</h3>
+                    <p>Register a new patient in the system.</p>
+                    <a href="pages/patient-management.html" class="btn">Add Patient</a>
+                </div>
+                <div class="card">
+                    <h3>Upcoming Sessions</h3>
+                    <p>View the schedule for upcoming therapy sessions.</p>
+                    <a href="pages/session-documentation.html" class="btn">View Schedule</a>
+                </div>
+                <div class="card">
+                    <h3>Create Therapy Plan</h3>
+                    <p>Design a new therapy plan for patients.</p>
+                    <a href="pages/therapy-plans.html" class="btn">Create Plan</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Features Section -->
+        <div class="system-features">
+            <h2>System Features</h2>
+            <ul>
+                <li>Comprehensive patient management with detailed records.</li>
+                <li>Customizable therapy plans tailored to individual needs.</li>
+                <li>Real-time session documentation for accurate progress tracking.</li>
+                <li>Advanced reporting features to monitor patient outcomes.</li>
+                <li>Role-based access control for secure supervision and management.</li>
+                <li>Easy-to-use interface with responsive design for all devices.</li>
+            </ul>
+        </div>
+
+        <!-- Recent Activities Section -->
+        <div class="recent-activities">
+            <h2>Recent Activities</h2>
+            <ul>
+                <li><strong>John Doe</strong> updated the therapy plan for <strong>Patient A</strong> (Today).</li>
+                <li><strong>Jane Smith</strong> completed a session documentation for <strong>Patient B</strong> (Yesterday).</li>
+                <li><strong>Admin</strong> added a new therapist to the system (2 days ago).</li>
+                <li><strong>Dr. Brown</strong> reviewed the progress report for <strong>Patient C</strong> (3 days ago).</li>
+            </ul>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="resources">
+            <h2>Resources</h2>
+            <div class="flex-container">
+                <div class="card">
+                    <img src="assets/img/user-guide.png" alt="User Guide">
+                    <h3>User Guide</h3>
+                    <p>Learn how to use the Therapy Management System effectively.</p>
+                    <a href="docs/user-guide.html" class="btn">Read Guide</a>
+                </div>
+                <div class="card">
+                    <img src="assets/img/support.png" alt="Support">
+                    <h3>Support</h3>
+                    <p>Need help? Contact our support team for assistance.</p>
+                    <a href="support.html" class="btn">Get Support</a>
+                </div>
+                <div class="card">
+                    <img src="assets/img/faqs.png" alt="FAQs">
+                    <h3>FAQs</h3>
+                    <p>Find answers to common questions about the system.</p>
+                    <a href="faq.html" class="btn">View FAQs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="therapy.js"></script>
+</body>
+</html>
