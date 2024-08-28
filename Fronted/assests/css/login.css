@@ -15,8 +15,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    max-width: 1000px;
-    width: 100%;
+    width:800px;
     border: solid black 1px;
 }
 
