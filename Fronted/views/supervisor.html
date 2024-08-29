@@ -3,86 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supervisor Dashboard</title>
-    <link rel="stylesheet" href="supervisor.css">
+    <title>Supervisor Review - Speech Language Therapy</title>
+    <link rel="stylesheet" href="/Fronted/assests/css/supervisor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQkzhu7DZb5I4QvK5C7f3gSVjWk5B4sdJ4aP0c2DsENH/4M0e4PCp+cQFycJ+Z3XPSk9H+5bZkRV0Mc1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="dashboard-container">
-        <header>
-            <div class="logo">
-                <img src="assets/logo.png" alt="Logo">
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">Institution Logo</div>
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-user-friends"></i> Patient Allocation</a></li>
+                <li><a href="#"><i class="fas fa-user-md"></i> Therapist Management</a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> Reports</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <img src="profile-pic.png" alt="Profile Picture" class="profile-pic">
+            <span>Supervisor Name</span>
+            <div class="dropdown">
+                <a href="#"><i class="fas fa-user"></i> Profile Settings</a>
+                <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </div>
-            <div class="logout">
-                <button id="logout-button">Logout</button>
-            </div>
-        </header>
-        <div class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#patient-assignments">Patient Assignments</a></li>
-                    <li><a href="#therapy-plans">Therapy Plans</a></li>
-                    <li><a href="#session-reviews">Session Reviews</a></li>
-                    <li><a href="#progress-reports">Progress Reports</a></li>
-                    <li><a href="#feedback">Feedback</a></li>
-                </ul>
-            </nav>
         </div>
-        <main>
-            <section id="overview">
-                <h2>Overview</h2>
-                <div class="metrics">
-                    <div class="metric">
-                        <h3>Total Patients</h3>
-                        <p id="total-patients">0</p>
-                    </div>
-                    <div class="metric">
-                        <h3>Pending Approvals</h3>
-                        <p id="pending-approvals">0</p>
-                    </div>
-                    <div class="metric">
-                        <h3>Sessions Today</h3>
-                        <p id="sessions-today">0</p>
-                    </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Statistics Section -->
+        <section class="statistics">
+            <div class="stat-item">
+                <h2><i class="fas fa-users"></i> Total Patients</h2>
+                <p id="total-patients">Loading...</p>
+            </div>
+            <div class="stat-item">
+                <h2><i class="fas fa-tasks"></i> Pending Approvals</h2>
+                <p id="pending-approvals">Loading...</p>
+            </div>
+        </section>
+
+        <!-- Filterable List of Pending Reviews -->
+        <section class="pending-reviews">
+            <h2><i class="fas fa-clipboard-list"></i> Pending Reviews</h2>
+            <div class="filters">
+                <div class="filter-item">
+                    <label for="filter-patient">Filter by Patient:</label>
+                    <input type="text" id="filter-patient" oninput="filterReviews()" placeholder="Enter patient name">
                 </div>
-            </section>
-            <section id="patient-assignments">
-                <h2>Patient Assignments</h2>
-                <button id="view-assignments">View All Assignments</button>
-                <div id="assignments-list">
-                    <!-- List of assignments will be dynamically loaded here -->
+                <div class="filter-item">
+                    <label for="filter-therapist">Filter by Therapist:</label>
+                    <input type="text" id="filter-therapist" oninput="filterReviews()" placeholder="Enter therapist name">
                 </div>
-            </section>
-            <section id="therapy-plans">
-                <h2>Therapy Plans</h2>
-                <button id="review-plans">Review Therapy Plans</button>
-                <div id="plans-list">
-                    <!-- List of therapy plans will be dynamically loaded here -->
+                <div class="filter-item">
+                    <label for="filter-date">Filter by Date:</label>
+                    <input type="date" id="filter-date" onchange="filterReviews()">
                 </div>
-            </section>
-            <section id="session-reviews">
-                <h2>Session Reviews</h2>
-                <button id="review-sessions">Review Sessions</button>
-                <div id="sessions-list">
-                    <!-- List of sessions to review will be dynamically loaded here -->
-                </div>
-            </section>
-            <section id="progress-reports">
-                <h2>Progress Reports</h2>
-                <button id="view-reports">View Progress Reports</button>
-                <div id="reports-list">
-                    <!-- List of progress reports will be dynamically loaded here -->
-                </div>
-            </section>
-            <section id="feedback">
-                <h2>Feedback</h2>
-                <button id="view-feedback">View Feedback</button>
-                <div id="feedback-list">
-                    <!-- Feedback from therapists will be dynamically loaded here -->
-                </div>
-            </section>
-        </main>
-    </div>
-    <script src="supervisor.js"></script>
+            </div>
+            <ul id="review-list" class="review-list">
+                <li data-patient="John Doe" data-therapist="Jane Smith" data-date="2024-08-25" onclick="viewReview(this)">
+                    <strong>Patient:</strong> John Doe, <strong>Therapist:</strong> Jane Smith, <strong>Date:</strong> 25/08/2024
+                </li>
+                <!-- Additional pending reviews will be populated here -->
+            </ul>
+        </section>
+
+        <!-- Detailed View of Therapy Plan/Session -->
+        <section class="review-details" id="review-details" style="display:none;">
+            <h2><i class="fas fa-file-alt"></i> Review Details</h2>
+            <div class="patient-info">
+                <h3>Patient Information</h3>
+                <p id="patient-info"></p>
+            </div>
+            <div class="therapist-info">
+                <h3>Therapist Information</h3>
+                <p id="therapist-info"></p>
+            </div>
+            <div class="therapy-plan">
+                <h3>Therapy Plan and Session Details</h3>
+                <p id="therapy-plan-details"></p>
+            </div>
+            <div class="review-actions">
+                <button class="btn-approve" onclick="approvePlan()"><i class="fas fa-check-circle"></i> Approve</button>
+                <button class="btn-reject" onclick="rejectPlan()"><i class="fas fa-times-circle"></i> Reject</button>
+                <button class="btn-feedback" onclick="provideFeedback()"><i class="fas fa-comment-dots"></i> Provide Feedback</button>
+            </div>
+            <div class="feedback-section" id="feedback-section" style="display:none;">
+                <h3><i class="fas fa-comments"></i> Provide Feedback</h3>
+                <textarea id="feedback-text" placeholder="Enter your feedback..."></textarea>
+                <button class="btn-submit" onclick="submitFeedback()"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+            </div>
+        </section>
+
+        <!-- Additional Tools Section -->
+        <section class="additional-tools">
+            <h2><i class="fas fa-tools"></i> Additional Tools</h2>
+            <div class="notifications">
+                <h3><i class="fas fa-bell"></i> Notifications</h3>
+                <ul id="notification-list" class="notification-list">
+                    <li><i class="fas fa-exclamation-circle"></i> Pending Review: Case #102</li>
+                    <li><i class="fas fa-calendar-alt"></i> Deadline: Submit by 30/08/2024</li>
+                    <!-- More notifications -->
+                </ul>
+            </div>
+            <div class="case-history">
+                <h3><i class="fas fa-history"></i> Case History</h3>
+                <p>Timeline view of all interactions related to this case.</p>
+            </div>
+            <div class="chat-therapist">
+                <h3><i class="fas fa-comments"></i> Chat with Therapist</h3>
+                <textarea id="chat-message" placeholder="Type your message here..."></textarea>
+                <button class="btn-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i> Send</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Institution Name. All rights reserved.</p>
+        <p><a href="#">Help & Support</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p>Contact: Address, Phone, Email</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/Fronted/assests/js/supervisor.js"></script>
 </body>
 </html>
