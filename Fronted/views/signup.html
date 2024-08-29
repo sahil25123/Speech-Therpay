@@ -11,31 +11,25 @@
 <body>
     <div class="background-image"></div>
     <div class="signup-container">
-        <div class="signup-logo">
-            <img src="logo.jpg" alt="Logo">
-        </div>
-        <h2>Therapist Signup</h2>
+        <h1>Therapist Signup</h1>
         <form id="signupForm">
+            <!-- Line 1: Username -->
             <div class="form-group">
-                <label for="username">Username</label>
                 <div class="input-icon">
                     <i class="fas fa-user"></i>
-                    <input type="text" id="username" name="username" required placeholder="Enter your username">
+                    <input type="text" id="username" name="username" required placeholder="Username">
                 </div>
                 <small class="error-message" id="username-error"></small>
             </div>
-            <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" name="first-name" required placeholder="Enter your first name">
-                <small class="error-message" id="first-name-error"></small>
+
+            <!-- Line 2: First Name, Last Name -->
+            <div class="form-group pair">
+                <input type="text" id="first-name" name="first-name" required placeholder="First Name">
+                <input type="text" id="last-name" name="last-name" required placeholder="Last Name">
             </div>
+
+            <!-- Line 3: Sex -->
             <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" name="last-name" required placeholder="Enter your last name">
-                <small class="error-message" id="last-name-error"></small>
-            </div>
-            <div class="form-group">
-                <label for="sex">Sex</label>
                 <select id="sex" name="sex" required>
                     <option value="" disabled selected>Select Sex</option>
                     <option value="male">Male</option>
@@ -44,18 +38,15 @@
                 </select>
                 <small class="error-message" id="sex-error"></small>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-                <small class="error-message" id="email-error"></small>
+
+            <!-- Line 4: Phone, Email -->
+            <div class="form-group pair">
+                <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+                <input type="email" id="email" name="email" required placeholder="Email">
             </div>
+
+            <!-- Line 5: Specialization -->
             <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-                <small class="error-message" id="phone-error"></small>
-            </div>
-            <div class="form-group">
-                <label for="specialization">Specialization</label>
                 <select id="specialization" name="specialization" required>
                     <option value="" disabled selected>Select Specialization</option>
                     <option value="speech-therapy">Speech Therapy</option>
@@ -65,49 +56,44 @@
                 </select>
                 <small class="error-message" id="specialization-error"></small>
             </div>
+
+            <!-- Line 6: Qualification -->
             <div class="form-group">
-                <label for="qualification">Qualification</label>
-                <input type="text" id="qualification" name="qualification" required placeholder="Enter your qualification">
-                <small class="error-message" id="qualification-error"></small>
+                <input type="text" id="qualification" name="qualification" required placeholder="Qualification">
             </div>
-            <div class="form-group">
-                <label for="experience">Years of Experience</label>
-                <input type="number" id="experience" name="experience" required placeholder="Enter years of experience">
-                <small class="error-message" id="experience-error"></small>
+
+            <!-- Line 7: Experience and License Number -->
+            <div class="experience-license-container">
+                <div class="form-group pair">
+                    <input type="number" id="experience" name="experience" required placeholder="Experience">
+                    <input type="text" id="license-number" name="license-number" required placeholder="License Number">
+                </div>
             </div>
+            <!-- Line 9: Bio -->
             <div class="form-group">
-                <label for="license-number">License Number</label>
-                <input type="text" id="license-number" name="license-number" required placeholder="Enter your license number">
-                <small class="error-message" id="license-number-error"></small>
-            </div>
-            <div class="form-group">
-                <label for="bio">Short Bio</label>
                 <textarea id="bio" name="bio" rows="4" placeholder="Tell us a bit about yourself..." required></textarea>
-                <small class="error-message" id="bio-error"></small>
             </div>
+
+            <!-- Line 10: Profile Picture -->
             <div class="form-group">
                 <label for="profile-picture">Profile Picture</label>
                 <input type="file" id="profile-picture" name="profile-picture" accept="image/*" required>
-                <small class="error-message" id="profile-picture-error"></small>
             </div>
+
+            <!-- Line 11: Address -->
             <div class="form-group">
-                <label for="address">Address</label>
                 <textarea id="address" name="address" rows="4" required placeholder="Enter your address"></textarea>
-                <small class="error-message" id="address-error"></small>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
+
+            <!-- Line 12: Password, Confirm Password -->
+            <div class="form-group pair">
                 <div class="input-icon">
                     <i class="fas fa-lock"></i>
                     <input type="password" id="password" name="password" required placeholder="Enter your password">
                 </div>
-                <small class="error-message" id="password-error"></small>
-            </div>
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
-                <small class="error-message" id="confirm-password-error"></small>
             </div>
+
             <button type="submit">Sign Up</button>
             <div class="form-footer">
                 <p>Already have an account? <a href="login.html">Login here</a></p>
