@@ -106,3 +106,4 @@ document.getElementById('filter-gender').addEventListener('change', renderPatien
 document.addEventListener('DOMContentLoaded', function() {
     renderPatientList();
 });
+

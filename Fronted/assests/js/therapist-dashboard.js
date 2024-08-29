@@ -1,53 +1,84 @@
-// Function to toggle the sidebar visibility
-function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('closed');
-}
+document.addEventListener("DOMContentLoaded", function() {
+    const sidebar = document.getElementById("sidebar");
+    const mainContent = document.getElementById("mainContent");
+    const sidebarToggle = document.getElementById("sidebarToggle");
 
-// Event listener for the DOMContentLoaded event to ensure the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-    const sidebarToggleBtn = document.querySelector('.toggle-btn');
-    const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.querySelector('.main-content');
-    
-    // Toggle sidebar visibility on button click
-    sidebarToggleBtn.addEventListener('click', function () {
-        sidebar.classList.toggle('closed');
-        mainContent.classList.toggle('shifted');
+    sidebarToggle.addEventListener("click", function() {
+        sidebar.classList.toggle("closed");
+        mainContent.classList.toggle("shifted");
     });
-});
 
-// Optional: Add more interactive features as needed
+    // Initialize Charts
+    const ctxProgress = document.getElementById("progressChart").getContext("2d");
+    const ctxSessionCount = document.getElementById("sessionCountChart").getContext("2d");
+    const ctxGoals = document.getElementById("goalsChart").getContext("2d");
 
-// Example: Search Bar Functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const searchInput = document.querySelector('.search-bar input');
-    searchInput.addEventListener('input', function () {
-        // Implement search logic here
-        const query = searchInput.value.toLowerCase();
-        console.log(`Searching for: ${query}`);
-        // Filter cards or other content based on the query
+    const progressChart = new Chart(ctxProgress, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Patient Progress (%)',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
     });
-});
 
-// Example: User Profile Interaction (Optional)
-document.addEventListener('DOMContentLoaded', function () {
-    const userProfile = document.querySelector('.user-profile img');
-    userProfile.addEventListener('click', function () {
-        // Implement user profile dropdown or other interactions here
-        alert('User profile clicked!');
+    const sessionCountChart = new Chart(ctxSessionCount, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: '# of Sessions',
+                data: [12, 19, 3, 5, 2, 3, 7],
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
     });
-});
 
-// Example: Handle card hover interactions for animations
-document.addEventListener('DOMContentLoaded', function () {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(function (card) {
-        card.addEventListener('mouseenter', function () {
-            card.classList.add('hovered');
-        });
-        card.addEventListener('mouseleave', function () {
-            card.classList.remove('hovered');
-        });
+    const goalsChart = new Chart(ctxGoals, {
+        type: 'pie',
+        data: {
+            labels: ['Achieved', 'In Progress', 'Pending'],
+            datasets: [{
+                label: 'Therapy Goals',
+                data: [10, 20, 30],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true
+        }
     });
 });

@@ -1,17 +1,20 @@
 /* Base Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f7fa;
-    color: #333;
+    background: linear-gradient(135deg, #6DD5FA, #FFFFFF);
     margin: 0;
     padding: 0;
+}
+
+h1 {
+    text-align: center;
 }
 
 /* Sidebar Styles */
 .sidebar {
     width: 250px;
     height: 100%;
-    background-color: #007bff;
+    background-color: #6f94bc;
     color: white;
     position: fixed;
     top: 0;
@@ -36,66 +39,45 @@ body {
     transform: translateX(-100%);
 }
 
-/* Toggle Button */
-.toggle-btn {
-    display: none; /* Hidden by default, adjust as needed */
-    background-color: #007bff;
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    background-color: #6DD5FA;
     color: white;
     border: none;
-    padding: 15px;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1001;
-    border-radius: 8px;
-}
-
-/* Top Navigation Bar */
-.top-nav {
-    margin-left: 250px;
-    padding: 20px;
-    background: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.top-nav h1 {
-    color: #007bff;
-    margin: 0;
-}
-
-.search-bar input {
-    padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 16px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 1100;
 }
 
-.user-profile {
-    display: flex;
-    align-items: center;
-}
-
-.user-profile img {
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.user-profile span {
-    font-size: 16px;
-    color: #333;
+.sidebar-toggle:focus {
+    outline: none;
 }
 
 /* Main Content Area */
 .main-content {
     margin-left: 260px;
+    transition: margin-left 0.3s ease;
     padding: 30px;
 }
 
-.quick-links .card {
+.main-content.shifted {
+    margin-left: 10px;
+}
+
+/* Patient Links, To-Do Tasks, Recent Activities, and Statistics Reports */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.card {
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -107,31 +89,94 @@ body {
     margin-bottom: 20px;
 }
 
-.quick-links .card:hover {
+.card:hover {
     transform: translateY(-10px);
 }
 
-/* Chart Container */
-.chart-container {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 40px;
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    text-decoration: none;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
+.btn:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff);
+}
 
+/* To-Do Tasks */
+.to-do-tasks ul {
+    list-style: none;
+    padding-left: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.to-do-tasks ul li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f7f9fc;
+    transition: background 0.3s ease;
+}
+
+.to-do-tasks ul li:hover {
+    background: #eef2f7;
+}
+
+/* Recent Activities */
+.recent-activities ul {
+    list-style: none;
+    padding-left: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recent-activities ul li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.recent-activities ul li:hover {
+    background: #f0f2f5;
+}
+
+.recent-activities ul li strong {
+    color: #007bff;
+}
+
+/* Statistics Reports */
+.statistics-reports .card canvas {
+    width: 100%;
+    height: 200px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
     .main-content {
         margin-left: 0;
         padding: 20px;
     }
+    
+    .sidebar-toggle {
+        left: 10px;
+    }
+    
+    .sidebar.closed {
+        transform: translateX(-100%);
+    }
 
-    .toggle-btn {
-        display: block;
+    .main-content.shifted {
+        margin-left: 0;
     }
 }
