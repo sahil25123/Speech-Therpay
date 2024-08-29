@@ -1,36 +1,96 @@
-// dashboard.js
+// Simulate fetching the total number of patients and pending approvals
+document.addEventListener('DOMContentLoaded', function() {
+    // Assuming these values are fetched from a backend or API
+    const totalPatients = 150;
+    const pendingApprovals = 35;
 
-document.getElementById('logout-button').addEventListener('click', function() {
-    // Redirect to login page or handle logout logic
-    window.location.href = 'login.html';
+    // Displaying the fetched values
+    document.getElementById('total-patients').textContent = totalPatients;
+    document.getElementById('pending-approvals').textContent = pendingApprovals;
 });
 
-document.getElementById('view-assignments').addEventListener('click', function() {
-    // Fetch and display patient assignments
-    document.getElementById('assignments-list').innerHTML = '<p>Loading...</p>';
-    // You can replace this with an actual AJAX call to fetch assignments from the server
-});
+/**
+ * Filters the list of pending reviews based on patient name, therapist name, or date.
+ */
+function filterReviews() {
+    const patientFilter = document.getElementById('filter-patient').value.toLowerCase();
+    const therapistFilter = document.getElementById('filter-therapist').value.toLowerCase();
+    const dateFilter = document.getElementById('filter-date').value;
 
-document.getElementById('review-plans').addEventListener('click', function() {
-    // Fetch and display therapy plans
-    document.getElementById('plans-list').innerHTML = '<p>Loading...</p>';
-    // You can replace this with an actual AJAX call to fetch therapy plans from the server
-});
+    const reviews = document.querySelectorAll('#review-list li');
 
-document.getElementById('review-sessions').addEventListener('click', function() {
-    // Fetch and display sessions to review
-    document.getElementById('sessions-list').innerHTML = '<p>Loading...</p>';
-    // You can replace this with an actual AJAX call to fetch sessions from the server
-});
+    reviews.forEach(review => {
+        const patient = review.getAttribute('data-patient').toLowerCase();
+        const therapist = review.getAttribute('data-therapist').toLowerCase();
+        const date = review.getAttribute('data-date');
 
-document.getElementById('view-reports').addEventListener('click', function() {
-    // Fetch and display progress reports
-    document.getElementById('reports-list').innerHTML = '<p>Loading...</p>';
-    // You can replace this with an actual AJAX call to fetch reports from the server
-});
+        const isVisible = (patient.includes(patientFilter) || !patientFilter) &&
+                          (therapist.includes(therapistFilter) || !therapistFilter) &&
+                          (date === dateFilter || !dateFilter);
+        
+        review.style.display = isVisible ? '' : 'none';
+    });
+}
 
-document.getElementById('view-feedback').addEventListener('click', function() {
-    // Fetch and display feedback
-    document.getElementById('feedback-list').innerHTML = '<p>Loading...</p>';
-    // You can replace this with an actual AJAX call to fetch feedback from the server
-});
+/**
+ * Displays detailed view of the selected review.
+ * @param {HTMLElement} element - The clicked review element.
+ */
+function viewReview(element) {
+    const reviewDetails = document.getElementById('review-details');
+    reviewDetails.style.display = 'block';
+
+    // Fetching and displaying the corresponding patient and therapist details
+    document.getElementById('patient-info').innerText = element.getAttribute('data-patient');
+    document.getElementById('therapist-info').innerText = element.getAttribute('data-therapist');
+    document.getElementById('therapy-plan-details').innerText = 'Therapy plan details for the selected case go here.';
+}
+
+/**
+ * Approves the therapy plan.
+ */
+function approvePlan() {
+    alert('The therapy plan has been approved.');
+}
+
+/**
+ * Rejects the therapy plan.
+ */
+function rejectPlan() {
+    alert('The therapy plan has been rejected.');
+}
+
+/**
+ * Shows the feedback section for the supervisor to provide feedback.
+ */
+function provideFeedback() {
+    const feedbackSection = document.getElementById('feedback-section');
+    feedbackSection.style.display = 'block';
+}
+
+/**
+ * Submits the feedback provided by the supervisor.
+ */
+function submitFeedback() {
+    const feedbackText = document.getElementById('feedback-text').value;
+
+    if (feedbackText) {
+        alert('Feedback submitted: ' + feedbackText);
+        document.getElementById('feedback-text').value = ''; // Clear the feedback input
+        document.getElementById('feedback-section').style.display = 'none'; // Hide feedback section
+    } else {
+        alert('Please enter your feedback before submitting.');
+    }
+}
+
+/**
+ * Sends a message to the therapist.
+ */
+function sendMessage() {
+    const message = document.getElementById('chat-message').value;
+
+    if (message) {
+        alert('Message sent: ' + message);
+        document.getElementById('chat-message').value = ''; // Clear the chat input
+    }
+}
