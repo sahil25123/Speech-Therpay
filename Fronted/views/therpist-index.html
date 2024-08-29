@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <h2>Menu</h2>
         <a href="dashboard.html">Dashboard</a>
         <a href="patient-management.html">Patient Management</a>
@@ -17,12 +17,12 @@
         <a href="pages/progress-reports.html">Progress Reports</a>
         <a href="pages/supervision.html">Supervision</a>
         <a href="pages/settings.html">Settings</a>
-        <a href="/Fronted/views/login.html">Logout</a>
+        <a href="/Frontend/views/login.html">Logout</a>
     </div>
     <button id="sidebarToggle" class="sidebar-toggle">☰</button>
 
     <!-- Main Content Area -->
-    <div class="main-content">
+    <div class="main-content" id="mainContent">
         <h1>Welcome to the Therapy Management System</h1>
         <p>Select an option from the sidebar to begin.</p>
 
@@ -66,9 +66,11 @@
             <h2>Recent Activities</h2>
             <ul>
                 <li><strong>John Doe</strong> updated the therapy plan for <strong>Patient A</strong> (Today).</li>
-                <li><strong>Jane Smith</strong> completed a session documentation for <strong>Patient B</strong> (Yesterday).</li>
+                <li><strong>Jane Smith</strong> completed session documentation for <strong>Patient B</strong> (Yesterday).</li>
                 <li><strong>Admin</strong> added a new therapist to the system (2 days ago).</li>
                 <li><strong>Dr. Brown</strong> reviewed the progress report for <strong>Patient C</strong> (3 days ago).</li>
+                <!-- Display today's date -->
+                <li><strong>System</strong> displayed today's date (Today).</li>
             </ul>
         </div>
 

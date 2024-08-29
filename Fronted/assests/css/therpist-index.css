@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* Sidebar Styles */
 .sidebar {
     width: 250px;
@@ -53,23 +54,8 @@ body {
 .sidebar-toggle:focus {
     outline: none;
 }
-/* Toggle Button for Small Screens */
-.toggle-btn {
-    display: none;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1001;
-    border-radius: 8px;
-}
 
-
-/* Adjust Main Content when Sidebar is Closed */
+/* Main Content Area */
 .main-content {
     margin-left: 260px;
     transition: margin-left 0.3s ease;
@@ -80,58 +66,15 @@ body {
     margin-left: 10px;
 }
 
-/* Additional Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fa;
-    color: #333;
-    margin: 0;
-    padding: 0;
+/* Quick Links & Resources Cards */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
 }
 
-h1, h2 {
-    color: #007bff;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* Add additional styles as needed */
-
-
-h1, h2 {
-    color: #007bff;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.main-content {
-    padding: 30px;
-    margin-left: 260px;
-}
-
-h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
-/* Quick Links Section */
-.quick-links .card,
-.resources .card {
+.card {
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -143,12 +86,11 @@ h2 {
     margin-bottom: 20px;
 }
 
-.quick-links .card:hover,
-.resources .card:hover {
+.card:hover {
     transform: translateY(-10px);
 }
 
-.quick-links .btn, .resources .btn {
+.btn {
     margin-top: 20px;
     padding: 10px 20px;
     background: linear-gradient(135deg, #007bff, #0056b3);
@@ -158,36 +100,26 @@ h2 {
     transition: background 0.3s ease;
 }
 
-.quick-links .btn:hover,
-.resources .btn:hover {
+.btn:hover {
     background: linear-gradient(135deg, #0056b3, #007bff);
 }
 
-.quick-links {
-    margin-top: 40px;
-}
-
-.quick-links .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* System Features Section */
+/* System Features List */
 .system-features ul {
     list-style: none;
     padding-left: 0;
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .system-features ul li {
     flex: 1;
-    margin-bottom: 20px;
-    padding: 15px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
 
@@ -195,7 +127,7 @@ h2 {
     transform: translateY(-5px);
 }
 
-/* Recent Activities Section */
+/* Recent Activities */
 .recent-activities ul {
     list-style: none;
     padding-left: 0;
@@ -220,40 +152,28 @@ h2 {
     color: #007bff;
 }
 
-/* Resources Section */
-.resources {
-    margin-top: 40px;
-}
-
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.resources .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    text-align: center;
-}
-
+/* Resources Images */
 .resources .card img {
     width: 60px;
     margin-bottom: 20px;
 }
 
-/* Media Queries for Responsiveness */
+/* Media Queries */
 @media (max-width: 768px) {
     .main-content {
         margin-left: 0;
         padding: 20px;
     }
+    
+    .sidebar-toggle {
+        left: 10px;
+    }
+    
+    .sidebar.closed {
+        transform: translateX(-100%);
+    }
 
-    .flex-container {
-        flex-direction: column;
-        gap: 15px;
+    .main-content.shifted {
+        margin-left: 0;
     }
 }
