@@ -1,9 +1,10 @@
 const patients = [
-    { name: "John Doe", age: 30, gender: "Male", contact: "123-456-7890", therapyPlan: "Plan A" },
-    { name: "Jane Smith", age: 25, gender: "Female", contact: "987-654-3210", therapyPlan: "Plan B" },
+    { name: "John Doe", age: 30, gender: "Male", contact: "123-456-7890", therapyPlan: "Plan A", sessionSchedule: "2024-09-01", address: "123 Elm Street" },
+    { name: "Jane Smith", age: 25, gender: "Female", contact: "987-654-3210", therapyPlan: "Plan B", sessionSchedule: "2024-09-02", address: "456 Oak Avenue" },
     // Add more patient objects as needed
 ];
 
+// Function to render the patient list based on search and filter criteria
 function renderPatientList() {
     const searchQuery = document.getElementById('search-bar').value.toLowerCase();
     const filterGender = document.getElementById('filter-gender').value;
@@ -33,6 +34,7 @@ function renderPatientList() {
     });
 }
 
+// Function to handle the form submission for adding a new patient
 document.getElementById('add-patient-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -42,7 +44,8 @@ document.getElementById('add-patient-form').addEventListener('submit', function(
         gender: document.getElementById('patient-gender').value,
         contact: document.getElementById('patient-contact').value,
         therapyPlan: document.getElementById('therapy-plan').value,
-        sessionSchedule: document.getElementById('session-schedule').value
+        sessionSchedule: document.getElementById('session-schedule').value,
+        address: document.getElementById('patient-address').value
     };
 
     patients.push(newPatient);
@@ -50,6 +53,7 @@ document.getElementById('add-patient-form').addEventListener('submit', function(
     this.reset();
 });
 
+// Function to view the patient profile in a modal
 function viewPatientProfile(index) {
     const patient = patients[index];
     const modal = document.getElementById('patient-modal');
@@ -68,27 +72,34 @@ function viewPatientProfile(index) {
     modal.style.display = 'block';
 }
 
+// Function to close the modal
 function closeModal() {
     document.getElementById('patient-modal').style.display = 'none';
 }
 
+// Function to send a reminder to the patient
 function sendReminder() {
     alert('Reminder sent to patient.');
 }
 
+// Function to generate a report for the patient
 function generateReport() {
     alert('Patient report generated.');
 }
 
+// Function to delete a patient from the list
 function deletePatient(index) {
-    patients.splice(index, 1);
-    renderPatientList();
+    if (confirm('Are you sure you want to delete this patient?')) {
+        patients.splice(index, 1);
+        renderPatientList();
+    }
 }
 
+// Function to export the patient data as CSV
 function exportData() {
     const csvContent = "data:text/csv;charset=utf-8,"
         + patients.map(patient => 
-            `${patient.name},${patient.age},${patient.gender},${patient.contact},${patient.therapyPlan}`
+            `${patient.name},${patient.age},${patient.gender},${patient.contact},${patient.therapyPlan},${patient.sessionSchedule},${patient.address}`
         ).join("\n");
 
     const encodedUri = encodeURI(csvContent);
@@ -100,10 +111,21 @@ function exportData() {
     link.click();
 }
 
+// Event listeners for search and filter
 document.getElementById('search-bar').addEventListener('input', renderPatientList);
 document.getElementById('filter-gender').addEventListener('change', renderPatientList);
 
+// Initial rendering of the patient list when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     renderPatientList();
 });
 
+const toggleButton = document.getElementById('toggle-sidebar');
+const sidebar = document.querySelector('.sidebar');
+const mainContent = document.querySelector('.main-content');
+
+// Toggle sidebar visibility
+toggleButton.addEventListener('click', function() {
+    sidebar.classList.toggle('collapsed');
+    mainContent.classList.toggle('expanded');
+});

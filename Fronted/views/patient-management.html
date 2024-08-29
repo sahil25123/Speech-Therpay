@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Management - Therapy Management System</title>
     <link rel="stylesheet" href="/Fronted/assests/css/patient-management.css">
 </head>
+
 <body>
     <!-- Toggle Button -->
-    <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button>
+    <button class="toggle-btn" id="toggle-sidebar" onclick="toggleSidebar()">☰</button>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -26,7 +28,7 @@
     <!-- Main Content Area -->
     <div class="main-content">
         <h1>Patient Management</h1>
-        
+
         <!-- Search and Filter -->
         <div class="search-filter">
             <input type="text" id="search-bar" placeholder="Search by name or therapy plan...">
@@ -48,6 +50,9 @@
 
                 <label for="patient-age">Age:</label>
                 <input type="number" id="patient-age" name="patient-age" required>
+
+                <label for="patient-dob">Date of Birth:</label>
+                <input type="date" id="patient-dob" name="patient-dob" required>
 
                 <label for="patient-gender">Gender:</label>
                 <select id="patient-gender" name="patient-gender">
@@ -80,8 +85,10 @@
                     <tr>
                         <th>Name</th>
                         <th>Age</th>
+                        <th>DOB</th>
                         <th>Gender</th>
                         <th>Contact</th>
+                        <th>Address</th>
                         <th>Therapy Plan</th>
                         <th>Actions</th>
                     </tr>
@@ -91,6 +98,41 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- To-Do Tasks -->
+        <div class="todo-tasks">
+            <h2>To-Do Tasks</h2>
+            <ul id="todo-list">
+                <!-- Tasks will be added here dynamically -->
+            </ul>
+            <input type="text" id="new-task" placeholder="Add new task...">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="recent-activities">
+            <h2>Recent Activities</h2>
+            <ul id="recent-activities-list">
+                <!-- Recent activities will be added here dynamically -->
+            </ul>
+        </div>
+
+        <!-- Patient Progress Overview -->
+        <div class="progress-overview">
+            <h2>Patient Progress Overview</h2>
+            <div id="progress-chart">
+                <!-- Progress chart or statistics can be integrated here -->
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="statistics">
+            <h2>Statistics</h2>
+            <div id="statistics-content">
+                <!-- General statistics about sessions, patients, etc. -->
+            </div>
+        </div>
+
     </div>
 
     <!-- Patient Profile Modal -->
@@ -108,4 +150,5 @@
 
     <script src="/Fronted/assests/js/patient-management.js"></script>
 </body>
+
 </html>

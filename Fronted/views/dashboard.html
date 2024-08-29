@@ -19,7 +19,7 @@
         <a href="settings.html">Settings</a>
         <a href="login.html">Logout</a>
     </div>
-    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+    <button id="sidebarToggle" class="sidebar-toggle">&#9776;</button>
 
     <!-- Main Content Area -->
     <div class="main-content" id="mainContent">
@@ -50,12 +50,14 @@
         <!-- To-Do Tasks Section -->
         <div class="to-do-tasks">
             <h2>To-Do Tasks</h2>
-            <ul>
-                <li><input type="checkbox"> Complete therapy plan for Patient A</li>
-                <li><input type="checkbox"> Document session for Patient B</li>
-                <li><input type="checkbox"> Review progress report for Patient C</li>
-                <li><input type="checkbox"> Update supervision notes</li>
+            <ul id="taskList">
+                <li><input type="checkbox"> Complete therapy plan for Patient A <button onclick="deleteTask(this)">Delete</button></li>
+                <li><input type="checkbox"> Document session for Patient B <button onclick="deleteTask(this)">Delete</button></li>
+                <li><input type="checkbox"> Review progress report for Patient C <button onclick="deleteTask(this)">Delete</button></li>
+                <li><input type="checkbox"> Update supervision notes <button onclick="deleteTask(this)">Delete</button></li>
             </ul>
+            <input type="text" id="newTaskInput" placeholder="New task...">
+            <button onclick="addTask()">Add Task</button>
         </div>
 
         <!-- Recent Activities Section -->

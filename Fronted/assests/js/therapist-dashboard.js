@@ -82,3 +82,23 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Add New Task
+function addTask() {
+    const taskList = document.getElementById("taskList");
+    const newTaskInput = document.getElementById("newTaskInput");
+    const newTaskText = newTaskInput.value.trim();
+
+    if (newTaskText !== "") {
+        const li = document.createElement("li");
+        li.innerHTML = `<input type="checkbox"> ${newTaskText} <button onclick="deleteTask(this)">Delete</button>`;
+        taskList.appendChild(li);
+        newTaskInput.value = ""; // Clear the input field after adding
+    }
+}
+
+// Delete Task
+function deleteTask(button) {
+    const li = button.parentElement;
+    li.remove();
+}
