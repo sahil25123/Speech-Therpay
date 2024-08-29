@@ -1,0 +1,137 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #007bff;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #0056b3;
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+/* Toggle Button */
+.toggle-btn {
+    display: none; /* Hidden by default, adjust as needed */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    border-radius: 8px;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    margin-left: 250px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav h1 {
+    color: #007bff;
+    margin: 0;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-profile span {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+}
+
+.quick-links .card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    margin-bottom: 20px;
+}
+
+.quick-links .card:hover {
+    transform: translateY(-10px);
+}
+
+/* Chart Container */
+.chart-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+}
