@@ -61,6 +61,13 @@ input, select, textarea {
 input[type="file"] {
     padding: 5px;
 }
+
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 .input-icon i {
     position: absolute;
     left: 10px;
@@ -74,6 +81,9 @@ input[type="file"] {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
+    padding-left: 35px; /* Provide enough space for the icon */
+    width: 100%;
+    box-sizing: border-box; 
 }
 
 button {
