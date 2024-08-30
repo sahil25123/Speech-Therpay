@@ -1,25 +1,20 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const sidebar = document.getElementById("sidebar");
-    const mainContent = document.getElementById("mainContent");
-    const sidebarToggle = document.getElementById("sidebarToggle");
-    const toggleSidebarButton = document.getElementById('sidebar-toogle');
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleSidebarButton = document.getElementById('toggle-sidebar');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+
+    toggleSidebarButton.addEventListener('click', function () {
+        sidebar.classList.toggle('collapsed');
+        mainContent.classList.toggle('collapsed');
+    });
+
+    // Add other event listeners and dynamic functionalities
     const addPatientForm = document.getElementById('add-patient-form');
     const patientTableBody = document.getElementById('patient-table-body');
     const patientModal = document.getElementById('patient-modal');
     const patientProfile = document.getElementById('patient-profile');
 
-    // Toggle sidebar functionality
-    sidebarToggle.addEventListener("click", function() {
-        sidebar.classList.toggle("closed");
-        mainContent.classList.toggle("shifted");
-    });
-
-    toggleSidebarButton.addEventListener('click', function() {
-        sidebar.classList.toggle('collapsed');
-        mainContent.classList.toggle('collapsed');
-    });
-
-    // Mock data for patients
+    // Mock data
     const patients = [
         {
             name: "John Doe",
@@ -30,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
             address: "123 Street, City",
             therapyPlan: "Plan A"
         },
+        // Add more mock patients if needed
     ];
 
     function loadPatients() {
@@ -57,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     loadPatients();
 
-    addPatientForm.addEventListener('submit', function(event) {
+    addPatientForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
         const newPatient = {
@@ -75,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
         addPatientForm.reset();
     });
 
-    window.editPatient = function(index) {
+    window.editPatient = function (index) {
         const patient = patients[index];
         document.getElementById('patient-name').value = patient.name;
         document.getElementById('patient-age').value = patient.age;
@@ -89,16 +85,16 @@ document.addEventListener("DOMContentLoaded", function() {
         loadPatients();
     };
 
-    window.deletePatient = function(index) {
+    window.deletePatient = function (index) {
         patients.splice(index, 1);
         loadPatients();
     };
 
-    window.closeModal = function() {
+    window.closeModal = function () {
         patientModal.style.display = "none";
     };
-
-    window.openPatientProfile = function(index) {
+    
+    window.openPatientProfile = function (index) {
         const patient = patients[index];
         patientProfile.innerHTML = `
             <p><strong>Name:</strong> ${patient.name}</p>
@@ -112,105 +108,11 @@ document.addEventListener("DOMContentLoaded", function() {
         patientModal.style.display = "block";
     };
 
-    window.sendReminder = function() {
+    window.sendReminder = function () {
         alert("Reminder sent!");
     };
 
-    window.generateReport = function() {
+    window.generateReport = function () {
         alert("Report generated!");
-    };
-
-    // Initialize Charts
-    const ctxProgress = document.getElementById("progressChart").getContext("2d");
-    const ctxSessionCount = document.getElementById("sessionCountChart").getContext("2d");
-    const ctxGoals = document.getElementById("goalsChart").getContext("2d");
-
-    const progressChart = new Chart(ctxProgress, {
-        type: 'line',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-            datasets: [{
-                label: 'Patient Progress (%)',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    const sessionCountChart = new Chart(ctxSessionCount, {
-        type: 'bar',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-            datasets: [{
-                label: '# of Sessions',
-                data: [12, 19, 3, 5, 2, 3, 7],
-                backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                borderColor: 'rgba(153, 102, 255, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    const goalsChart = new Chart(ctxGoals, {
-        type: 'pie',
-        data: {
-            labels: ['Achieved', 'In Progress', 'Pending'],
-            datasets: [{
-                label: 'Therapy Goals',
-                data: [10, 20, 30],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
-
-    // Add New Task
-    window.addTask = function() {
-        const taskList = document.getElementById("taskList");
-        const newTaskInput = document.getElementById("newTaskInput");
-        const newTaskText = newTaskInput.value.trim();
-
-        if (newTaskText !== "") {
-            const li = document.createElement("li");
-            li.innerHTML = `<input type="checkbox"> ${newTaskText} <button onclick="deleteTask(this)">Delete</button>`;
-            taskList.appendChild(li);
-            newTaskInput.value = ""; // Clear the input field after adding
-        }
-    };
-
-    // Delete Task
-    window.deleteTask = function(button) {
-        const li = button.parentElement;
-        li.remove();
     };
 });
