@@ -9,21 +9,20 @@
 </head>
 <body>
     <div class="sidebar">
-        <h2>Therapy Management System</h2>
-        <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="patient-management.html">Patient Management</a></li>
-            <li><a href="session-documentation.html" class="active">Session Documentation</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="logout.html">Logout</a></li>
-        </ul>
+        <h1>Menu</h1>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="patient-management.html">Patient Management</a>
+        <a href="/Fronted/views/therapy-plan.html">Therapy Plans</a>
+        <a href="/Fronted/views/session-doc.html">Session Documentation</a>
+        <a href="progress-reports.html">Progress Reports</a>
+        <a href="supervision.html">Supervision</a>
+        <a href="settings.html">Settings</a>
+        <a href="login.html">Logout</a>    
     </div>
+    <button id="sidebarToggle" class="sidebar-toggle">&#9776;</button>
 
     <div class="content">
-        <button class="toggle-btn" id="toggle-btn">&#9776;</button>
-        <header>
             <h1>Session Documentation</h1>
-        </header>
         
         <form action="submit_report.php" method="post" class="report-form">
             <fieldset>
