@@ -31,9 +31,14 @@ h1 {
     color: white;
     text-decoration: none;
 }
+.sidebar a:hover, .sidebar a.active {
+    background-color: #1abc9c;
+    transform: translateX(0px);
+}
+
 
 .sidebar a:hover {
-    background-color: #1abc9c;
+    background-color: #1abc9c;  
 }
 
 .sidebar.closed {
