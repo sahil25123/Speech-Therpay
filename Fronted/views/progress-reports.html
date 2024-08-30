@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Reports</title>
+    <link rel="stylesheet" href="/Fronted/assests/css/progress-reports.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <h2>Therapy Management System</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="patient-management.html">Patient Management</a></li>
+            <li><a href="session-documentation.html">Session Documentation</a></li>
+            <li><a href="progress-reports.html" class="active">Progress Reports</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <button class="toggle-btn" id="toggle-btn">&#9776;</button>
+        <header>
+            <h1>Progress Reports</h1>
+        </header>
+
+        <section class="report-filter">
+            <form action="progress-reports.php" method="get">
+                <label for="patient_name">Patient Name:</label>
+                <input type="text" id="patient_name" name="patient_name" placeholder="Enter patient name">
+
+                <label for="date_range">Date Range:</label>
+                <input type="date" id="start_date" name="start_date">
+                <input type="date" id="end_date" name="end_date">
+
+                <button type="submit">Filter Reports</button>
+            </form>
+        </section>
+
+        <section class="report-table">
+            <!-- PHP code will populate this table -->
+            <?php include 'fetch_reports.php'; ?>
+        </section>
+    </div>
+</body>
+</html>
