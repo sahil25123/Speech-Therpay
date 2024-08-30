@@ -156,3 +156,14 @@ button:active {
 .signup-link a:hover {
     text-decoration: underline;
 }
+@media (max-width: 768px) {
+
+    .login-container{
+        width: 240px;
+
+    }
+    #loginForm{
+        width: 225px;
+    }
+}
+
