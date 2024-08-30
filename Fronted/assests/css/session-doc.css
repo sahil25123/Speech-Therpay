@@ -83,13 +83,13 @@ fieldset {
 
 legend {
     font-weight: bold;
-    color: #343a40;
+    color: #34495e;
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
-    color: #343a40;
+    color: #34495e;
 }
 
 input[type="text"], input[type="date"], select, textarea {
@@ -101,7 +101,7 @@ input[type="text"], input[type="date"], select, textarea {
 }
 
 button {
-    background-color: #343a40;
+    background-color: #34495e;
     color: #ffffff;
     padding: 12px 20px;
     border: none;
@@ -112,7 +112,7 @@ button {
 }
 
 button:hover {
-    background-color: #495057;
+    background-color: #34495e;
 }
 body {
     font-family: Arial, sans-serif;
@@ -124,7 +124,7 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: #343a40;
+    background-color: #34495e;
     color: #ffffff;
     height: 100vh;
     position: fixed;
@@ -144,7 +144,7 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    background-color: #343a40;
+    background-color: #34495e;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -156,7 +156,7 @@ body {
 }
 
 .toggle-btn:hover {
-    background-color: #495057;
+    background-color: #34495e;
 }
 
 .content {
@@ -166,14 +166,6 @@ body {
     background-color: #ffffff;
     min-height: 100vh;
     position: relative;
-}
-
-header h1 {
-    margin: 0;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #343a40;
-    font-size: 2em;
-    color: #343a40;
 }
 
 .report-form {
