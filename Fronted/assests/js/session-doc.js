@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleBtn = document.getElementById('toggle-btn');
-    const sidebar = document.getElementById('sidebar');
+document.addEventListener("DOMContentLoaded", function() {
+    const sidebar = document.getElementById("sidebar");
+    const content = document.getElementById("content");
+    const sidebarToggle = document.getElementById("sidebarToggle");
 
-    toggleBtn.addEventListener('click', function() {
-        sidebar.classList.toggle('hidden');
-        // Adjust content margin if needed
-        document.querySelector('.content').style.marginLeft = sidebar.classList.contains('hidden') ? '0' : '250px';
+    sidebarToggle.addEventListener("click", function() {
+        sidebar.classList.toggle("closed");
+        content.classList.toggle("shifted");
     });
-});
+})
