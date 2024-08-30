@@ -56,6 +56,7 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:foc
     left: 0;
     height: 100%;
     z-index: 1000;
+    padding-top: 60px;
 }
 
 .sidebar.collapsed {
@@ -65,6 +66,7 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:foc
 .sidebar h2 {
     font-size: 22px;
     margin-bottom: 30px;
+    color: #fff;
 }
 
 .sidebar a {
@@ -81,7 +83,17 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:foc
     background-color: #1abc9c;
     transform: translateX(5px);
 }
-
+h2{
+    text-align: center;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
 /* Toggle Button */
 .toggle-btn {
     position: fixed;
@@ -102,9 +114,6 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:foc
     left: 15px;
 }
 
-.toggle-btn:hover {
-    transform: rotate(90deg);
-}
 
 .toggle-btn:focus {
     outline: none;

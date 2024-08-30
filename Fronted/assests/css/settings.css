@@ -10,7 +10,7 @@ body {
 .sidebar {
     width: 250px;
     height: 100%;
-    background-color: #007bff;
+    background-color: #34495e;
     color: white;
     position: fixed;
     top: 0;
@@ -41,7 +41,8 @@ body {
 
 .sidebar a:hover,
 .sidebar a.active {
-    background-color: #0056b3;
+    background-color: #1abc9c;
+    transform: translateX(5px);
 }
 
 /* Hide text when sidebar is collapsed */
@@ -56,7 +57,7 @@ body {
     position: fixed;
     top: 15px;
     left: 15px;
-    background-color: #007bff;
+    background-color: #1abc9c;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -79,12 +80,15 @@ h1 {
     font-size: 36px;
     margin-bottom: 20px;
     font-weight: bold;
+    
 }
 
 h2 {
+    color: white;
+    text-align: center;
     font-size: 28px;
     margin-bottom: 15px;
-    color: #007bff;
+    color: #2c3e50;
 }
 
 form {
@@ -112,12 +116,12 @@ button {
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #007bff;
+    border-color: #34495e;
     outline: none;
 }
 
 button {
-    background-color: #007bff;
+    background-color: #34495e;
     color: white;
     cursor: pointer;
     border: none;
@@ -125,7 +129,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2e4154;
 }
 
 textarea {
@@ -143,12 +147,12 @@ textarea {
 
 /* Logout Button */
 .logout-btn {
-    background-color: #007bff;
+    background-color: #34495e;
     color: white;
 }
 
 .logout-btn:hover {
-    background-color: #0056b3;
+    background-color: #2e4154;
 }
 
 /* Sections Styling */
