@@ -1,33 +1,36 @@
+/* Base Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f7fa;
+    background: linear-gradient(135deg, #6DD5FA, #FFFFFF);
     color: #333;
     margin: 0;
     padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 /* Sidebar Styles */
 .sidebar {
     width: 250px;
     height: 100%;
-    background-color: #007bff;
+    background-color: #6f94bc;
     color: white;
     position: fixed;
     top: 0;
     left: 0;
     padding-top: 60px;
-    transition: width 0.3s ease;
+    transition: transform 0.3s ease, width 0.3s ease;
+    z-index: 1000;
     overflow: hidden;
-    z-index: 1000; /* Ensure sidebar stays above the content */
 }
 
-.sidebar.collapsed {
-    width: 0px;
-}
-
-.sidebar h2 {
-    padding-left: 20px;
-    transition: opacity 0.3s ease;
+.sidebar.closed {
+    transform: translateX(-100%);
 }
 
 .sidebar a {
@@ -43,49 +46,42 @@ body {
     background-color: #0056b3;
 }
 
-/* Hide text when sidebar is collapsed */
-.sidebar.collapsed h2,
-.sidebar.collapsed a {
-    opacity: 0;
-    pointer-events: none;
+.sidebar h2 {
+    padding-left: 20px;
+    transition: opacity 0.3s ease;
 }
 
-/* Toggle Button */
-.toggle-btn {
+/* Sidebar Toggle Button */
+.sidebarToggle {
     position: fixed;
     top: 15px;
     left: 15px;
-    background-color: #007bff;
+    font-size: 24px;
+    background-color: #6DD5FA;
     color: white;
     border: none;
+    border-radius: 4px;
     padding: 10px 15px;
     cursor: pointer;
-    z-index: 1001; /* Ensure toggle button stays above the sidebar */
+    z-index: 1100;
 }
 
-/* Main Content */
+.sidebar-toggle:focus {
+    outline: none;
+}
+
+/* Main Content Area */
 .main-content {
     margin-left: 260px;
     padding: 30px;
     transition: margin-left 0.3s ease;
 }
 
-.sidebar.collapsed + .main-content {
-    margin-left: 70px; /* Adjusted margin to match collapsed sidebar width */
+.sidebar.closed + .main-content {
+    margin-left: 10px;
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 28px;
-    margin-bottom: 15px;
-    color: #007bff;
-}
-
+/* Search Filter */
 .search-filter {
     display: flex;
     justify-content: space-between;
@@ -213,29 +209,96 @@ button:hover {
     cursor: pointer;
 }
 
-/* Statistics, Progress Overview, Recent Activities, To-Do List */
-.statistics,
-.progress-overview,
-.recent-activities,
-.todo-tasks {
-    margin-top: 50px;
-}
-
-.todo-tasks ul,
+/* To-Do Tasks, Recent Activities, and Statistics Reports */
+.to-do-tasks ul,
 .recent-activities ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.todo-tasks ul li,
+.to-do-tasks ul li,
 .recent-activities ul li {
-    background-color: #f4f4f4;
+    margin-bottom: 10px;
     padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
+    border-radius: 8px;
+    background: #f7f9fc;
+    transition: background 0.3s ease;
 }
 
-.todo-tasks ul li:hover,
+.to-do-tasks ul li:hover,
 .recent-activities ul li:hover {
-    background-color: #ddd;
+    background: #eef2f7;
+}
+
+.recent-activities ul li strong {
+    color: #007bff;
+}
+
+/* Flex Container for Cards */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff);
+}
+
+/* Statistics Reports */
+.statistics-reports .card canvas {
+    width: 100%;
+    height: 200px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .sidebar-toggle {
+        left: 10px;
+    }
+
+    .sidebar.closed {
+        transform: translateX(-100%);
+    }
+
+    .main-content.shifted {
+        margin-left: 0;
+    }
 }
