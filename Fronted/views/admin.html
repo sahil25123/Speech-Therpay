@@ -7,89 +7,91 @@
     <link rel="stylesheet" href="/Fronted/assests/css/admin.css">
 </head>
 <body>
-    <!-- Toggle Button -->
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
-        <h2>Admin Menu</h2>
+        <h1>Admin Menu</h1>
         <a href="admin-dashboard.html">Dashboard</a>
-        <a href="patient-management.html">Patient Management</a>
-        <a href="therapy-planning.html">Therapy Planning</a>
-        <a href="session-documentation.html">Session Documentation</a>
-        <a href="supervisor-review.html">Supervisor Review</a>
-        <a href="progress-reporting.html">Progress Reporting</a>
-        <a href="feedback-evaluation.html">Feedback & Evaluation</a>
         <a href="user-management.html">User Management</a>
+        <a href="content-management.html">Content Management</a>
+        <a href="reporting.html">Reporting</a>
         <a href="settings.html">Settings</a>
-        <a href="logout.html">Logout</a>
+        <a href="login.html">Logout</a>
     </div>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
 
-    <!-- Page Content -->
-    <div class="content">
-        <!-- Top Navigation Bar -->
-        <div class="top-nav">
-            <h1>Admin Dashboard</h1>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-            </div>
-            <div class="user-profile">
-                <img src="https://via.placeholder.com/40" alt="Admin Profile Picture">
-                <span>Admin Name</span>
+    <!-- Main Content Area -->
+    <div class="main-content" id="mainContent">
+        <h1>Welcome to the Admin Dashboard</h1>
+
+        <!-- Quick Links Section -->
+        <div class="quick-links">
+            <h2>Quick Links</h2>
+            <div class="flex-container">
+                <div class="card">
+                    <h3>Manage Users</h3>
+                    <p>View and manage all users in the system.</p>
+                    <a href="user-management.html" class="btn">Manage Users</a>
+                </div>
+                <div class="card">
+                    <h3>Content Overview</h3>
+                    <p>Review and manage the system's content.</p>
+                    <a href="content-management.html" class="btn">View Content</a>
+                </div>
+                <div class="card">
+                    <h3>View Reports</h3>
+                    <p>Generate and review reports on system usage and performance.</p>
+                    <a href="reporting.html" class="btn">View Reports</a>
+                </div>
             </div>
         </div>
 
-        <!-- Main Content Area -->
-        <div class="main-content">
+        <!-- System Features Section -->
+        <div class="system-features">
+            <h2>System Features</h2>
+            <ul>
+                <li>Manage users with detailed access control and roles.</li>
+                <li>Handle content management, including posts and media.</li>
+                <li>Generate comprehensive reports and analytics.</li>
+                <li>Configure system-wide settings and preferences.</li>
+                <li>Monitor system performance and user activity.</li>
+                <li>Responsive design for seamless admin experience on all devices.</li>
+            </ul>
+        </div>
+
+        <!-- Recent Activities Section -->
+        <div class="recent-activities">
+            <h2>Recent Activities</h2>
+            <ul>
+                <li><strong>Admin</strong> updated user roles (Today).</li>
+                <li><strong>Admin</strong> published new content (Yesterday).</li>
+                <li><strong>Admin</strong> generated performance reports (2 days ago).</li>
+                <li><strong>Admin</strong> changed system settings (3 days ago).</li>
+                <!-- Display today's date -->
+                <li><strong>System</strong> displayed today's date (Today).</li>
+            </ul>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="resources">
+            <h2>Resources</h2>
             <div class="flex-container">
-                <!-- Upcoming Therapy Sessions -->
-                <div class="upcoming-sessions">
-                    <h3>Upcoming Therapy Sessions</h3>
-                    <ul>
-                        <li>Session with Patient A - 10:00 AM</li>
-                        <li>Session with Patient B - 12:00 PM</li>
-                        <li>Session with Patient C - 2:00 PM</li>
-                    </ul>
-                </div>
-
-                <!-- Notifications -->
-                <div class="notifications">
-                    <h3>Notifications</h3>
-                    <ul>
-                        <li>New patient assignment for Therapist X.</li>
-                        <li>Pending approval for Therapy Plan Y.</li>
-                        <li>Session documentation required for Patient Z.</li>
-                    </ul>
-                </div>
-
-                <!-- Quick Links -->
                 <div class="card">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="patient-management.html">Manage Patients</a></li>
-                        <li><a href="therapy-planning.html">Create Therapy Plans</a></li>
-                        <li><a href="session-documentation.html">Document Sessions</a></li>
-                    </ul>
+                    <img src="/Fronted/assests/images/user-guide.png" alt="User Guide">
+                    <h3>User Guide</h3>
+                    <p>Learn how to manage the Therapy Management System effectively.</p>
+                    <a href="/Fronted/views/user-guide.html" class="btn">Read Guide</a>
                 </div>
-
-                <!-- Recent Activity Feed -->
-                <div class="recent-activity">
-                    <h3>Recent Activity</h3>
-                    <ul>
-                        <li>Therapist A updated session notes for Patient B.</li>
-                        <li>New therapy plan created for Patient C by Therapist D.</li>
-                        <li>Patient E's progress report finalized and submitted.</li>
-                    </ul>
+                <div class="card">
+                    <img src="/Fronted/assests/images/support.png" alt="Support">
+                    <h3>Support</h3>
+                    <p>Need help? Contact our support team for assistance.</p>
+                    <a href="/Fronted/views/support.html" class="btn">Get Support</a>
                 </div>
-
-                <!-- Graphs/Charts -->
-                <div class="chart-container">
-                    <h3>Patient Progress Overview</h3>
-                    <!-- Insert chart library code here -->
-                    <!-- Example placeholder for chart -->
-                    <div style="width: 100%; height: 100%; background-color: #e9ecef; border-radius: 8px;">
-                        <p style="text-align: center; line-height: 400px; color: #6c757d;">Chart will be displayed here</p>
-                    </div>
+                <div class="card">
+                    <img src="/Fronted/assests/images/faqs.png" alt="FAQs">
+                    <h3>FAQs</h3>
+                    <p>Find answers to common questions about admin tasks.</p>
+                    <a href="/Fronted/views/faq.html" class="btn">View FAQs</a>
                 </div>
             </div>
         </div>

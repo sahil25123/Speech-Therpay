@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Therapy Management System</title>
+    <link rel="stylesheet" href="/Fronted/assests/css/user-management.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <h1>Admin Menu</h1>
+        <a href="admin.html">Dashboard</a>
+        <a href="user-management.html">User Management</a>
+        <a href="content-management.html">Content Management</a>
+        <a href="reporting.html">Reporting</a>
+        <a href="settings.html">Settings</a>
+        <a href="login.html">Logout</a>
+    </div>
+    <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+
+    <!-- Main Content Area -->
+    <div class="main-content" id="mainContent">
+        <h1>User Management</h1>
+
+        <!-- Supervisor Section -->
+        <div class="section" id="supervisors">
+            <h2>Supervisors</h2>
+            <button class="btn add" id="addSupervisor">Add Supervisor</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Supervisor rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Therapist Section -->
+        <div class="section" id="therapists">
+            <h2>Therapists</h2>
+            <button class="btn add" id="addTherapist">Add Therapist</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Supervisor</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Therapist rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Patient Section -->
+        <div class="section" id="patients">
+            <h2>Patients</h2>
+            <button class="btn add" id="addPatient">Add Patient</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Allocated Therapist</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Patient rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Supervisor Modal -->
+    <div id="addSupervisorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeAddSupervisor">&times;</span>
+            <h2>Add Supervisor</h2>
+            <form id="addSupervisorForm">
+                <label for="supervisor-name">Name:</label>
+                <input type="text" id="supervisor-name" name="name" required>
+                <label for="supervisor-email">Email:</label>
+                <input type="email" id="supervisor-email" name="email" required>
+                <label for="supervisor-phone">Phone:</label>
+                <input type="tel" id="supervisor-phone" name="phone" required>
+                <button type="submit" class="btn">Add Supervisor</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Therapist Modal -->
+    <div id="addTherapistModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeAddTherapist">&times;</span>
+            <h2>Add Therapist</h2>
+            <form id="addTherapistForm">
+                <label for="therapist-name">Name:</label>
+                <input type="text" id="therapist-name" name="name" required>
+                <label for="therapist-email">Email:</label>
+                <input type="email" id="therapist-email" name="email" required>
+                <label for="therapist-phone">Phone:</label>
+                <input type="tel" id="therapist-phone" name="phone" required>
+                <label for="therapist-supervisor">Supervisor:</label>
+                <select id="therapist-supervisor" name="supervisor" required>
+                    <!-- Options will be dynamically inserted here -->
+                </select>
+                <button type="submit" class="btn">Add Therapist</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Patient Modal -->
+    <div id="addPatientModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeAddPatient">&times;</span>
+            <h2>Add Patient</h2>
+            <form id="addPatientForm">
+                <label for="patient-name">Name:</label>
+                <input type="text" id="patient-name" name="name" required>
+                <label for="patient-email">Email:</label>
+                <input type="email" id="patient-email" name="email" required>
+                <label for="patient-phone">Phone:</label>
+                <input type="tel" id="patient-phone" name="phone" required>
+                <label for="patient-therapist">Allocated Therapist:</label>
+                <select id="patient-therapist" name="therapist" required>
+                    <!-- Options will be dynamically inserted here -->
+                </select>
+                <button type="submit" class="btn">Add Patient</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/Fronted/assests/js/user-management.js"></script>
+</body>
+</html>
